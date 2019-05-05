@@ -24,7 +24,7 @@ class EditPet extends Component {
 
 
     componentDidMount = () => {
-        axios.get(`/pets/${this.props.match.params._id}`)
+        axios.get(`http://localhost:8000/pets/${this.props.match.params._id}`)
         .then(res => {
             this.setState({pet: res.data.pet});
         }).catch(err => {
@@ -51,10 +51,9 @@ class EditPet extends Component {
         this.setState({pet: {...this.state.pet, skill3: e.target.value}});
     }
 
-//Updating
     update = (e) => {
         e.preventDefault();
-        axios.put(`/pets/${this.props.match.params._id}`, this.state.pet)
+        axios.put(`http://localhost:8000/pets/${this.props.match.params._id}`, this.state.pet)
         .then(res => {
             console.log(res);
             if(res.data.errors) {
@@ -144,11 +143,9 @@ class EditPet extends Component {
                 <button type="submit">Edit pet</button> &nbsp;&nbsp;
             </form>
             <Link to="/"><button>Cancel</button></Link>
-
-
-      </fieldset>
+        </fieldset>
     )
-  }
+    }
 }
 
 export default EditPet;
