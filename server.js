@@ -6,7 +6,6 @@ const express = require('express'),
             port = 8000,
             app = express();
 
-o
 app.use(cors());
 app.use(bp.json());
 app.use(express.static(path.join(__dirname, './client/build')));
