@@ -1,12 +1,11 @@
 const express = require('express'),
             bp = require('body-parser'),
             path = require('path'),
-            cors = require('cors'),
             DB_NAME = "petsDB", 
             port = 8000,
             app = express();
 
-app.use(cors());
+
 app.use(bp.json());
 app.use(express.static(path.join(__dirname, './client/build')));
 

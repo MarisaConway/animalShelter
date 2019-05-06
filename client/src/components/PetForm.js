@@ -44,7 +44,7 @@ class PetForm extends Component {
 
     create = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/pets", this.state.pet)
+        axios.post("/pets", this.state.pet)
         .then(res => {
             console.log(res);
             if(res.data.errors) {

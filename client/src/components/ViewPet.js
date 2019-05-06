@@ -23,7 +23,7 @@ class ViewPet extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`http://localhost:8000/pets/${this.props.match.params._id}`)
+        axios.get(`/pets/${this.props.match.params._id}`)
         .then(res => {
             this.setState({pet: res.data.pet});
         }).catch(err => {
@@ -36,7 +36,7 @@ class ViewPet extends Component {
         let L= this.state.pet.likes;
         L+=1;
         this.setState({pet: {...this.state.pet, likes: 1}}, () => {
-            axios.put(`http://localhost:8000/pets/${this.props.match.params._id}`, this.state.pet)
+            axios.put(`/pets/${this.props.match.params._id}`, this.state.pet)
             .then(res => {
             console.log(res);
             if(res.data.errors) {
@@ -50,7 +50,7 @@ class ViewPet extends Component {
     }
 
     delete = (e) => {
-        axios.delete(`http://localhost:8000/pets/${this.props.match.params._id}`)
+        axios.delete(`/pets/${this.props.match.params._id}`)
         .then(res => {
             this.props.history.push('/');
         }).catch(err => {

@@ -29,7 +29,7 @@ class DashBoard extends Component {
         this.setState({pets: pets});
         }
     getPets = () =>{
-        axios.get("http://localhost:8000/pets")
+        axios.get("/pets")
         .then(res => {
         this.setState({pets: res.data.pets}, () => {
             this.rankPets();
@@ -40,7 +40,7 @@ class DashBoard extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("http://localhost:8000/pets")
+        axios.get("/pets")
         .then(res => {
             this.setState({pets: res.data.pets})
         }).catch(err => {
